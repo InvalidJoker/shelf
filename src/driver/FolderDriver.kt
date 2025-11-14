@@ -5,6 +5,9 @@ import java.io.File
 /**
  * A driver that stores *multiple* serialized objects inside a folder.
  * Each object = one file, name is determined by key.
+ *
+ * @author InvalidJoker
+ * @since 1.0.0
  */
 class FolderDriver(
     private val folder: File
