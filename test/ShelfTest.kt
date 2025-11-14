@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import java.io.File
+import kotlin.io.path.createTempDirectory
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertNull
@@ -23,7 +24,7 @@ class ShelfTest {
 
     @BeforeEach
     fun setup() {
-        tempDir = createTempDir(prefix = "shelf_test_")
+        tempDir = createTempDirectory("shelf_test_").toFile()
         shelf = shelf {
             driver(FolderDriver(tempDir))
         }

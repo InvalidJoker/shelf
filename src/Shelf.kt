@@ -45,8 +45,4 @@ class Shelf internal constructor(
 
     fun namespace(prefix: String, separator: String = ":"): NamespacedShelf =
         NamespacedShelf(this, prefix, separator)
-
-    /*fun batch(block: ShelfBatch.() -> Unit) {
-        ShelfBatch(this).block()
-    }*/
 }
