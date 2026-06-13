@@ -6,7 +6,6 @@ plugins {
 
     `java-library`
     `maven-publish`
-    signing
 }
 
 group = "de.joker"
@@ -88,21 +87,14 @@ publishing {
 
     repositories {
         val repoUrl = if (project.version.toString().endsWith("SNAPSHOT")) {
-            "https://central.sonatype.com/repository/maven-snapshots/"
+            "https://repo.koder.wtf/snapshots"
         } else {
-            "https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/"
+            "https://repo.koder.wtf/releases"
         }
         maven {
-            name = "sonatype"
+            name = "joker"
             url = uri(repoUrl)
-            credentials {
-                username = findProperty("sonatypeUsername") as String?
-                password = findProperty("sonatypePassword") as String?
-            }
+            credentials(PasswordCredentials::class)
         }
     }
-}
-
-signing {
-    sign(publishing.publications)
 }

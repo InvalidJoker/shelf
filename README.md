@@ -5,6 +5,7 @@
 ```kotlin
 repositories {
     mavenCentral()
+    maven("https://repo.koder.wtf/snapshots")
 }
 
 dependencies {
